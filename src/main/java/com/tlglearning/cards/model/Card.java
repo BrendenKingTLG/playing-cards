@@ -1,11 +1,13 @@
-package com.tlglearing.cards.model;
+package com.tlglearning.cards.model;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Card implements Comparable<Card>{
 
     private final Rank rank;
     private final Suit suit;
+    public List<Card> cards;
 
     public Card(Rank rank, Suit suit) {
         this.rank = rank;

@@ -1,4 +1,4 @@
-package com.tlglearing.cards.model;
+package com.tlglearning.cards.model;
 
 public enum Suit {
     CLUBS('\u2663'),
