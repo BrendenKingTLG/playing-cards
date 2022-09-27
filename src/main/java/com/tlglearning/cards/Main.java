@@ -10,11 +10,21 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-//    TODO create inst of deck
-//    TODO print string rep of deck
-//    TODO create accept src of ran
-//    TODO shuffle deck
-//    TODO print string rep of deck
+
+    class ColorFirst implements Comparator<Card> {
+
+      @Override
+      public int compare(Card card1, Card card2) {
+        int comparison = card1.suit().color().compareTo(card2.suit().color());
+        if (comparison == 0) {
+          comparison = card1.suit().compareTo(card2.suit());
+          if (comparison == 0) {
+            comparison = card1.rank().compareTo(card2.rank());
+          }
+        }
+        return comparison;
+      }
+    }
 
     Deck deck = new Deck();
 
@@ -27,21 +37,6 @@ public class Main {
     System.out.println(deck);
     deck.sort(new ColorFirst());
     System.out.println(deck);
-  }
-
-  private static class ColorFirst implements Comparator<Card> {
-
-    @Override
-    public int compare(Card card1, Card card2) {
-      int comparison = card1.suit().color().compareTo(card2.suit().color());
-      if (comparison == 0) {
-        comparison = card1.suit().compareTo(card2.suit());
-        if (comparison == 0) {
-          comparison = card1.rank().compareTo(card2.rank());
-        }
-      }
-      return comparison;
-    }
   }
 
 }
