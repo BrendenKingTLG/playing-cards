@@ -1,10 +1,6 @@
 package com.tlglearning.cards.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Deck implements Iterable<Card> {
     //fields
@@ -26,12 +22,20 @@ public class Deck implements Iterable<Card> {
         return Collections.unmodifiableList(cards).iterator();
     }
 
-   public void shuffle(Random rng) {
+    public void shuffle(Random rng) {
         Collections.shuffle(cards, rng);
     }
 
-   public void shuffle() {
+    public void shuffle() {
         Collections.shuffle(cards);
+    }
+
+    public void sort(){
+        sort(null);
+    }
+
+    public void sort(Comparator<Card> comparator){
+        cards.sort(comparator);
     }
 
     @Override
